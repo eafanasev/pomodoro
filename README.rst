@@ -1,38 +1,32 @@
-Pomodoro plugin for Xfce4 panel
+Локализованный плагин техники "Помидора" для Xfce4
 ===============================
 
-This bash script uses xfce4-genmon-plugin and libnotify to create a simple
-Pomodoro timer for Xfce4 panel. After xfce4-genmon-plugin is added to the panel - it should point to the pomodoro.sh script
+Вся конфигурация находится в pomodoro.sh:
 
-To configure parameters please go to pomodoro.sh and configure:
+size - Размер иконки в пикселях
 
-size - Icon size in pixels
+pomodoro_time - Время "помидора" в минутах
 
-pomodoro_time - Time for the pomodoro cycle (in minutes)
+short_break_time - Время малого перерыва в минутах
 
-short_break_time - Time for the short break cycle (in minutes)
+long_break_time - Время длинного перерыва в минутах
 
-long_break_time - Time for the long break cycle (in minutes)
+cycles_between_long_breaks - Кол-во циклов перед длинным перерывом
 
-cycles_between_long_breaks - How many cycles should we do before long break
+notify_time - Время нотификации в секундах
 
-notify_time - Time for notifcation to hang (in seconds)
+Иконки используются эти http://www.flickr.com/photos/bcolbow/3842129453/
 
-The icons are stolen form http://www.flickr.com/photos/bcolbow/3842129453/
-
-Instructions for XUbuntu (and probably other XFCE from the family)
+Инструкция для XUbuntu (в других дистрибутивах используйте необходимый пакетный менеджер)
 ------------------------------------------------------------------
-#. Download pomodoro.sh or clone repository
-#. Install xfce4-genmon-plugin: ``# apt-get install xfce4-genmon-plugin``
-#. Right click on your XFCE panel, go to **Panel** => **Add New Items...**
-#. Search for **Generic Monitor**, and select it
-#. Right click on newly added monitor in panel, and select **Properties**
-#. In new window enter path to ``pomodoro.sh`` to *Command* field
-#. Uncheck *Label*
-#. Set some smaller period in seconds. This is refresh/recheck period.
-#. Set font large enough to see remaining time clearly.
-#. Click on your new panel item
-#. Stop procrastinating and start working :)
-
-
-Happy Pomodoro !!
+#. Скачайте pomodoro.sh или клонируйте репозиторий
+#. Установите xfce4-genmon-plugin: ``# apt-get install xfce4-genmon-plugin``
+#. Кликните правой кнопкой мыши на XFCE панель, **Panel** => **Add New Items...**
+#. Найдите **Generic Monitor**, и добавте
+#. Кликните правой кнопкой мыши на вновь созданный ярлык, затем **Properties**
+#. В поле *Command* укажите путь до ``pomodoro.sh``
+#. Снимите галочку *Label*
+#. Установите период обновления в секундах
+#. Установите необходимый шрифт
+#. Закройте окно настроек и кликните на иконке помидора
+#. Прекратите прокрастинировать и начинайте работать. :)

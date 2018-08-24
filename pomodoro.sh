@@ -21,11 +21,11 @@ pomodoro_cycle=$(( pomodoro_time * 60 ))
 short_break_cycle=$(( short_break_time * 60 ))
 long_break_cycle=$(( long_break_time * 60 ))
 notify_time=$(( notify_time * 1000 ))
-summary="Pomodoro"
-startmsg="Pomodoro started, you have $pomodoro_time minutes left"
-endmsg_shortbreak="Pomodoro ended, stop the work and take short break"
-endmsg_longbreak="Pomodoro ended, stop the work and take long break"
-killmsg="Pomodoro stopped, restart when you are ready"
+summary='Метод "Помидора"'
+startmsg="Помидорка началась, период $pomodoro_time минут."
+endmsg_shortbreak="Короткий перерыв!"
+endmsg_longbreak="Длинный перерыв!"
+killmsg="Помидорка остановлена, кликните еще раз когда примитесь за работу."
 
 function xnotify () {
 	notify-send -t $notify_time -i "$DIR/icons/running.png" "$summary" "$1"
@@ -43,13 +43,13 @@ function render_status () {
 	remaining_time=$2
 	saved_cycle_count=$3
 
-	display_mode="Work"
+	display_mode="Работа"
 	display_icon="running"
 	if [ $mode == "shortbreak" ] ; then
-		display_mode="Short break"
+		display_mode="Короткий перерыв"
 		display_icon="stopped"
 	elif [ $mode == "longbreak" ] ; then
-		display_mode="Long break"
+		display_mode="Длинный перерыв"
 		display_icon="stopped"
 	fi
 
@@ -60,7 +60,7 @@ function render_status () {
 	echo "<click>$DIR/pomodoro.sh -n</click>"
 	echo "<txt>$remaining_time_display</txt>"
 	echo "<img>$DIR/icons/$display_icon$size.png</img>"
-	echo "<tool>$display_mode: You have $remaining_time_display min left [#$saved_cycle_count]</tool>"
+	echo "<tool>$display_mode: Осталось $remaining_time_display минут [#$saved_cycle_count]</tool>"
 }
 
 ( flock -x 200
@@ -89,7 +89,7 @@ else
 	if [ $mode == "idle" ] ; then
 		echo "<click>$DIR/pomodoro.sh -n</click>"
 		echo "<img>$DIR/icons/stopped$size.png</img>"
-		echo "<tool>No Pomodoro Running</tool>"
+		echo "<tool>Помидорка не запущена</tool>"
 
 	else
 		# timer running
@@ -152,7 +152,7 @@ else
 
 			aplay "$DIR/cow.wav"
 			xnotify "$msg"
-			zenity --info --text="$msg"
+			# zenity --info --text="$msg"
 			echo "$current_time" > "$savedtime"
 
 		else
